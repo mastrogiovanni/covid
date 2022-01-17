@@ -17,14 +17,16 @@
 
 	<AccordionItem>
 		<h4 class="m-0" slot="header">Mio figlio è positivo, che devo fare?</h4>
-		Invia il risultato del tampone alla referente Covid
+		Invia il risultato del tampone alla referente Covid per email
 	</AccordionItem>
 
 	<AccordionItem>
 		<h4 class="m-0" slot="header">C'è un positivo in classe: che devo fare?</h4>
-		Fai fare a tuo figlio un tampone rapido antigenico e manda il risultato alla referente Covid.
-		Talvolta la referente non fa in tempo a contattare tutti, quindi se l'aiuti facendolo non appena
-		lo sai, le semplifichi il lavoro.
+		Aspetta che la referente Covid ti dica che fare:
+		<ul>
+			<li>o ti dirà di fare un tampone rapido antigenico (T0) se tuo figlio ha avuto contatti con il positivo nelle ultime 48 ore</li>
+			<li>oppure non devi fare nulla</li>
+		</ul>
 	</AccordionItem>
 	
 	<AccordionItem>
