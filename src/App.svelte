@@ -31,7 +31,7 @@
 	
 	<AccordionItem>
 		<h4 class="m-0" slot="header">La referente covid mi ha mandato una email dicendo di fare il tampone</h4>
-		Fallo e mandale il risultato.
+		Fallo e mandale il risultato per email
 	</AccordionItem>
 	
 	<AccordionItem>
