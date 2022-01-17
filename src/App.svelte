@@ -6,12 +6,12 @@
 
 <Accordion>
 
-	<AccordionItem active>
+	<AccordionItem>
 		<h4 class="m-0" slot="header">Chi sono i referenti COVID?</h4>
 		Sono persone dedicate a gestire le situazioni legate al COVID.
 		Sono:
 		<ul>
-			<li>Santoro: Cerasi MariaGrazia  cerasi.mariagrazia.dsp@icannacelli.edu.it</li>
+			<li>Santoro: <a href="mailto://cerasi.mariagrazia.dsp@icannacelli.edu.it">Cerasi MariaGrazia</a></li>
 		</ul>
 	</AccordionItem>
 
