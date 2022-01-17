@@ -37,20 +37,8 @@
 		No
 	</AccordionItem>
 
-
-
-	
-
-	(per esempio in farmacia piazza Balsamo Crivelli)
-
-	Rapido antigenico (per esempio in farmacia piazza Balsamo Crivelli)
-
-	<AccordionItem active header="Il tampone T0 e T5 che tipo sono">
-		Rapido antigenico (per esempio in farmacia piazza Balsamo Crivelli)
-	</AccordionItem>
-
-	<AccordionItem header="Library">
-		UCSB Library
+	<AccordionItem active header="Dove posso fare il tampone?">
+		Per esempio in farmacia piazza Balsamo Crivelli
 	</AccordionItem>
 </Accordion>
 
