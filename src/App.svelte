@@ -52,8 +52,9 @@
 	<AccordionItem>
 		<h4 class="m-0" slot="header">Dove posso fare il tampone?</h4>
 		<ul>
-			<li>In farmacia piazza Balsamo Crivelli</li>
-			<li>Oppure fai la richiesta alla ASL2 <a href="http://tamponecovid-aslroma2.accetta.info/">qui</a> e poi vai al drive-in scelto (può volerci più tempo)</li>
+			<li>Per esempio in farmacia piazza Balsamo Crivelli,</li>
+			<li>Oppure fai la richiesta alla ASL2 <a href="http://tamponecovid-aslroma2.accetta.info/">qui</a> e poi vai al drive-in scelto (può volerci più tempo),</li>
+			<li>Vai <a href="https://www.salutelazio.it/elenco-farmacie-che-eseguono-tamponi-antigenici-rapidi">qui</a> per vedere le farmacie che lo fanno.</li>
 		</ul>
 	</AccordionItem>
 </Accordion>
