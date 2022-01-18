@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Accordion, AccordionItem } from "sveltestrap";
 	import SvelteSeo from "svelte-seo";
+	import { Alert } from 'sveltestrap';
 </script>
 
 <SvelteSeo
@@ -40,9 +41,14 @@
 	}}
 />
 
-<h1>Guida rapida per la gestione Covid a scuola</h1>
+<Alert color="primary">
+	<h1>Guida rapida per la gestione Covid a scuola</h1>
+</Alert>
 
-<h2>Scuola Primaria</h2>
+<Alert color="secondary">
+	<h3>Scuola Primaria</h3>
+</Alert>
+
 
 <Accordion>
 	<AccordionItem>
