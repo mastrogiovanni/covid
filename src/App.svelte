@@ -90,17 +90,16 @@
 		<h4 class="m-0" slot="header">Mio figlio è positivo, che devo fare?</h4>
 		<ul>
 			<li>
-				Comunicare subito la positività alla scuola
-				(rmic8ek00l@istruzione.it) e alla referente Covid tramite email:
+				Comunicare subito la positività alla scuola e in copia alla referente Covid tramite email:
 				<ul>
 					<li>
-						Piccinini: <a href="mailto://covidpiccinini@icannacelli.edu.it"
-							>Latini Maria Teresa</a
+						<a href="mailto:rmic8ek00l@istruzione.it?cc=covidpiccinini@icannacelli.edu.it&subject=Comunicazione%20Posititivà"
+							>Piccinini (Latini Maria Teresa)</a
 						>
 					</li>
 					<li>
-						Santoro: <a href="mailto://covidsantoro@icannacelli.edu.it"
-							>Cerasi Maria Grazia</a
+						<a href="mailto:rmic8ek00l@istruzione.it?cc=covidsantoro@icannacelli.edu.it&subject=Comunicazione%20Posititivà"
+							>Santoro (Cerasi Maria Grazia)</a
 						>
 					</li>
 				</ul>
@@ -142,12 +141,12 @@
 			<li>Per accelerare la procedura di attivazione del testing T0/T5, inviare una mail a supporto della referente Covid:
 				<ul>
 					<li>
-						Piccinini: <a href="mailto://covidpiccinini@icannacelli.edu.it"
+						Piccinini: <a href="mailto:covidpiccinini@icannacelli.edu.it"
 							>Latini Maria Teresa</a
 						>
 					</li>
 					<li>
-						Santoro: <a href="mailto://covidsantoro@icannacelli.edu.it"
+						Santoro: <a href="mailto:covidsantoro@icannacelli.edu.it"
 							>Cerasi Maria Grazia</a
 						>
 					</li>
@@ -224,12 +223,12 @@
 				Tutti i genitori inviano referto al referente Covid della scuola:
 				<ul>
 					<li>
-						Piccinini: <a href="mailto://covidpiccinini@icannacelli.edu.it"
+						Piccinini: <a href="mailto:rmic8ek00l@istruzione.it?cc=covidpiccinini@icannacelli.edu.it&subject=Referto%20Covid"
 							>Latini Maria Teresa</a
 						>
 					</li>
 					<li>
-						Santoro: <a href="mailto://covidsantoro@icannacelli.edu.it"
+						Santoro: <a href="mailto:rmic8ek00l@istruzione.it?cc=covidsantoro@icannacelli.edu.it&subject=Referto%20Covid"
 							>Cerasi Maria Grazia</a
 						>
 					</li>
@@ -254,12 +253,12 @@
 				Tutti i genitori inviano referto al referente Covid della scuola
 				<ul>
 					<li>
-						Piccinini: <a href="mailto://covidpiccinini@icannacelli.edu.it"
+						Piccinini: <a href="mailto:rmic8ek00l@istruzione.it?cc=covidpiccinini@icannacelli.edu.it&subject=Refereto%20Covid"
 							>Latini Maria Teresa</a
 						>
 					</li>
 					<li>
-						Santoro: <a href="mailto://covidsantoro@icannacelli.edu.it"
+						Santoro: <a href="mailto:rmic8ek00l@istruzione.it?cc=covidsantoro@icannacelli.edu.it&subject=Refereto%20Covid"
 							>Cerasi Maria Grazia</a
 						>
 					</li>
