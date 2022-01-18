@@ -1,7 +1,11 @@
 <script lang="ts">
-	import { Accordion, AccordionItem } from "sveltestrap";
+	import { Accordion, AccordionItem, FormGroup, Input } from "sveltestrap";
 	import SvelteSeo from "svelte-seo";
 	import { Alert } from 'sveltestrap';
+
+	let rappresentante = false;
+
+	$: console.log(rappresentante);
 </script>
 
 <SvelteSeo
@@ -49,6 +53,9 @@
 	<h3>Scuola Primaria</h3>
 </Alert>
 
+<FormGroup>
+    <Input bind:checked={rappresentante} id="rappresentante" type="checkbox" label="Sono un rappresentante" />
+</FormGroup>
 
 <Accordion>
 	<AccordionItem>
@@ -123,7 +130,12 @@
 				La comunicazione della scuola viene inviata all'account
 				dell'alunno
 			</li>
+			{#if rappresentante}
+			<li>Tranquillizzare i genitori, la procedura è presa in carico dalla scuola</li>
+			<li>Per accelerare la procedura di attivazione del testing T0/T5, inviare una mail a supporto della referente Covid</li>
+			{/if}
 		</ul>
+
 	</AccordionItem>
 
 	<AccordionItem>
@@ -154,6 +166,9 @@
 				Chi decide di non effettuare il tampone va in quarantena per 10
 				giorni
 			</li>
+			{#if rappresentante}
+			<li>Si evidenzia alla classe che è bene muoversi in contemporanea sulla giornata per garantire il rientro in contemporanea delliintero gruppo. Senza tutti i tamponi non si può rientrare</li>
+			{/if}
 		</ul>
 	</AccordionItem>
 
