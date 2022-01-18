@@ -4,24 +4,33 @@
 </script>
 
 <SvelteSeo
-  title="FAQ Covid Scuola"
-  description="Risposta a domande frequenti per il Covid a scuola"
-  keywords="covid,scuola"
-  openGraph={{
-    title: 'FAQ Covid Scuola',
-    description: 'Risposta a domande frequenti per il Covid a scuola',
-    url: 'https://covid-celli.netlify.com/',
-    type: 'website',
+	openGraph={{
+    title: "FAQ Covid Scuola",
+    description: "Risposta a domande frequenti per il Covid a scuola",
+    type: "article",
+    url: "https://covid-celli.netlify.com/",
+    article: {
+      publishedTime: "2022-01-18T19:00:00Z",
+      modifiedTime: "2022-01-18T19:00:00Z",
+      expirationTime: "2025-01-18T19:00:00Z",
+      section: "FAQ",
+	  /*
+      authors: [
+        "https://www.example.com/authors/@firstnameA-lastnameA",
+        "https://www.example.com/authors/@firstnameB-lastnameB",
+      ],
+	  */
+      tags: ["covid", "scuola"],
+    },
     images: [
       {
-        url: 'https://covid-celli.netlify.com/imgs/covid.png',
+        url: "https://covid-celli.netlify.com/imgs/covid.png",
         width: 1958,
         height: 1966,
-        alt: 'Covid'
-      }
-     ]
+        alt: "Covid",
+      },
+    ],
   }}
-  
 />
 
 <h1>Sceglia la domanda che ti sta più a cuore</h1>
