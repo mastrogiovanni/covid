@@ -289,7 +289,6 @@
 		<h4 class="m-0" slot="header">
 			Si può andare a scuola in attesa del tampone T0 e del T5?
 		</h4>
-		No. L'attività in presenza è sospesa in attesa dell'esecuzione del test T0
-		e T5 da parte del gruppo classe
+		No. L'attività in presenza è sospesa in attesa di risposta del test T0 e T5 da parte del gruppo classe
 	</AccordionItem>
 </Accordion>
