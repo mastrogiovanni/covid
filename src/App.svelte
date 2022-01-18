@@ -40,7 +40,9 @@
 	}}
 />
 
-<h1>Sceglia la domanda che ti sta più a cuore</h1>
+<h1>Guida rapida per la gestione Covid a scuola</h1>
+
+<h2>Scuola Primaria</h2>
 
 <Accordion>
 	<AccordionItem>
