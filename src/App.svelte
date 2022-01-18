@@ -58,6 +58,7 @@
 </FormGroup>
 
 <Accordion>
+	<!--
 	<AccordionItem>
 		<h4 class="m-0" slot="header">Chi sono i referenti COVID?</h4>
 		<ul>
@@ -66,39 +67,46 @@
 					>Latini Maria Teresa</a
 				>
 			</li>
-			<!--
 			<li>
 				Sabin: <a href="mailto://covidsabin@icannacelli.edu.it"
 					>Neri Giuseppa</a
 				>
 			</li>
-			-->
 			<li>
 				Santoro: <a href="mailto://covidsantoro@icannacelli.edu.it"
 					>Cerasi Maria Grazia</a
 				>
 			</li>
-			<!--
 			<li>
 				Quaranta: <a href="mailto://covidquaranta@icannacelli.edu.it"
 					>Balduino Geppina</a
 				>
 			</li>
-			-->
 		</ul>
 	</AccordionItem>
+	-->
 
 	<AccordionItem>
 		<h4 class="m-0" slot="header">Mio figlio è positivo, che devo fare?</h4>
 		<ul>
 			<li>
 				Comunicare subito la positività alla scuola
-				(rmic8ek00l@istruzione.it) e alla referente Covid (vedi sopra)
-				tramite email.
+				(rmic8ek00l@istruzione.it) e alla referente Covid tramite email:
+				<ul>
+					<li>
+						Piccinini: <a href="mailto://covidpiccinini@icannacelli.edu.it"
+							>Latini Maria Teresa</a
+						>
+					</li>
+					<li>
+						Santoro: <a href="mailto://covidsantoro@icannacelli.edu.it"
+							>Cerasi Maria Grazia</a
+						>
+					</li>
+				</ul>
 			</li>
 			<li>
-				Comunicare al medico/pediatra la positività per attivare la
-				Quarantena del bambino.
+				Comunicare al medico/pediatra la positività per attivare la Quarantena del bambino.
 			</li>
 			<li>
 				Richiedere l'attivazione della DAD alla scuola (<a
@@ -107,8 +115,7 @@
 				>)
 			</li>
 			<li>
-				Un test antigenico positivo non necessita di conferma con
-				tampone molecolare
+				Un test antigenico positivo non necessita di conferma con tampone molecolare
 			</li>
 		</ul>
 	</AccordionItem>
@@ -132,7 +139,20 @@
 			</li>
 			{#if rappresentante}
 			<li>Tranquillizzare i genitori, la procedura è presa in carico dalla scuola</li>
-			<li>Per accelerare la procedura di attivazione del testing T0/T5, inviare una mail a supporto della referente Covid</li>
+			<li>Per accelerare la procedura di attivazione del testing T0/T5, inviare una mail a supporto della referente Covid:
+				<ul>
+					<li>
+						Piccinini: <a href="mailto://covidpiccinini@icannacelli.edu.it"
+							>Latini Maria Teresa</a
+						>
+					</li>
+					<li>
+						Santoro: <a href="mailto://covidsantoro@icannacelli.edu.it"
+							>Cerasi Maria Grazia</a
+						>
+					</li>
+				</ul>
+			</li>
 			{/if}
 		</ul>
 
@@ -201,8 +221,19 @@
 		<h4 class="m-0" slot="header">Dopo il T0 cosa fare?</h4>
 		<ul>
 			<li>
-				Tutti i genitori inviano referto al referente Covid della scuola
-				(vedi sopra)
+				Tutti i genitori inviano referto al referente Covid della scuola:
+				<ul>
+					<li>
+						Piccinini: <a href="mailto://covidpiccinini@icannacelli.edu.it"
+							>Latini Maria Teresa</a
+						>
+					</li>
+					<li>
+						Santoro: <a href="mailto://covidsantoro@icannacelli.edu.it"
+							>Cerasi Maria Grazia</a
+						>
+					</li>
+				</ul>
 			</li>
 			<li>
 				Il rappresentante comunica alla referente Covid negatività
@@ -221,7 +252,18 @@
 		<ul>
 			<li>
 				Tutti i genitori inviano referto al referente Covid della scuola
-				(vedi sopra)
+				<ul>
+					<li>
+						Piccinini: <a href="mailto://covidpiccinini@icannacelli.edu.it"
+							>Latini Maria Teresa</a
+						>
+					</li>
+					<li>
+						Santoro: <a href="mailto://covidsantoro@icannacelli.edu.it"
+							>Cerasi Maria Grazia</a
+						>
+					</li>
+				</ul>
 			</li>
 			<li>
 				Il rappresentante comunica al referente Covid negatività
