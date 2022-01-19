@@ -52,7 +52,7 @@
                     Quarantena del bambino.
                 </li>
                 <li>
-                    Richiedere l'attivazione della DAD alla scuola (<a
+                    Richiedere l'attivazione della DID alla scuola (<a
                         href="https://www.icannacelli.edu.it/area-personale/circolari-2021-2022/1320-circolare-n-211-attivazione-did-e-dad"
                         >vedi circ. n. 211</a
                     >)
