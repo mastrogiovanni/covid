@@ -35,13 +35,13 @@
                     <ul>
                         <li>
                             <a
-                                href="mailto:covidpiccinini@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Comunicazione%20Posititivà"
+                                href="mailto://covidpiccinini@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Comunicazione%20Posititivà"
                                 >Piccinini (Latini Maria Teresa)</a
                             >
                         </li>
                         <li>
                             <a
-                                href="mailto:covidsantoro@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Comunicazione%20Posititivà"
+                                href="mailto://covidsantoro@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Comunicazione%20Posititivà"
                                 >Santoro (Cerasi Maria Grazia)</a
                             >
                         </li>
@@ -95,12 +95,12 @@
                         <ul>
                             <li>
                                 <a
-                                    href="mailto:covidpiccinini@icannacelli.edu.it"
+                                    href="mailto://covidpiccinini@icannacelli.edu.it"
                                     >Piccinini (Latini Maria Teresa)</a
                                 >
                             </li>
                             <li>
-                                <a href="mailto:covidsantoro@icannacelli.edu.it"
+                                <a href="mailto://covidsantoro@icannacelli.edu.it"
                                     >Santoro (Cerasi Maria Grazia)</a
                                 >
                             </li>
@@ -195,13 +195,13 @@
                     <ul>
                         <li>
                             <a
-                                href="mailto:covidpiccinini@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Referto%20Covid"
+                                href="mailto://covidpiccinini@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Referto%20Covid"
                                 >Piccinini (Latini Maria Teresa)</a
                             >
                         </li>
                         <li>
                             <a
-                                href="mailto:covidsantoro@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Referto%20Covid"
+                                href="mailto://covidsantoro@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Referto%20Covid"
                                 >Santoro (Cerasi Maria Grazia)</a
                             >
                         </li>
@@ -232,13 +232,13 @@
                     <ul>
                         <li>
                             <a
-                                href="mailto:covidpiccinini@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Referto%20Covid"
+                                href="mailto://covidpiccinini@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Referto%20Covid"
                                 >Piccinini (Latini Maria Teresa)</a
                             >
                         </li>
                         <li>
                             <a
-                                href="mailto:covidsantoro@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Referto%20Covid"
+                                href="mailto://covidsantoro@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Referto%20Covid"
                                 >Santoro (Cerasi Maria Grazia)</a
                             >
                         </li>
@@ -283,13 +283,13 @@
                     <ul>
                         <li>
                             <a
-                                href="mailto:covidpiccinini@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Referto%20Covid"
+                                href="mailto://covidpiccinini@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Referto%20Covid"
                                 >Piccinini (Latini Maria Teresa)</a
                             >
                         </li>
                         <li>
                             <a
-                                href="mailto:covidsantoro@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Referto%20Covid"
+                                href="mailto://covidsantoro@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Referto%20Covid"
                                 >Santoro (Cerasi Maria Grazia)</a
                             >
                         </li>
