@@ -1,21 +1,65 @@
 <script lang="ts">
-	import { Accordion, AccordionItem, Button, FormGroup, Input, Modal, ModalBody, ModalFooter, ModalHeader } from "sveltestrap";
+	import {
+		SIGNIFICATO_QUARANTENA,
+		ALUNNO_POSITIVO,
+		BIMBO_48_ORE,
+		DOPO_T0,
+		DOPO_T5,
+		FIGLIO_POSITIVO,
+		POSSO_RIENTRARE,
+		QUANDO_APPLICHI_QUARANTENA_SORVEGLIANZA,
+		REFERENTE_MANDA_T0_T5,
+		SECONDO_POSITIVO,
+		SERVE_PRESCRIZIONE,
+		SORVEGLIANZA_TESTING,
+		T0_TIPO,
+		T5_TIPO,
+		USCITA_QUARANTENA,
+	} from "./constant";
+	import Questions from "./Questions.svelte";
+	import {
+		Button,
+		FormGroup,
+		Input,
+		Modal,
+		ModalBody,
+		ModalFooter,
+		ModalHeader,
+	} from "sveltestrap";
 	import SvelteSeo from "svelte-seo";
 	import { Alert } from "sveltestrap";
-import { onMount } from "svelte";
+	import { onMount } from "svelte";
 
 	let rappresentante = false;
 
 	let open = false;
 
 	function toggle() {
-		open = !open
+		open = !open;
 	}
 
 	onMount(() => {
-		let event = new Event('beforeinstallprompt')
-		window.dispatchEvent(event)		
-	})
+		let event = new Event("beforeinstallprompt");
+		window.dispatchEvent(event);
+	});
+
+	const primaria = [
+		FIGLIO_POSITIVO,
+		ALUNNO_POSITIVO,
+		REFERENTE_MANDA_T0_T5,
+		T0_TIPO,
+		T5_TIPO,
+		SERVE_PRESCRIZIONE,
+		POSSO_RIENTRARE,
+		DOPO_T0,
+		DOPO_T5,
+		SECONDO_POSITIVO,
+		USCITA_QUARANTENA,
+		BIMBO_48_ORE,
+		QUANDO_APPLICHI_QUARANTENA_SORVEGLIANZA,
+		SORVEGLIANZA_TESTING,
+		SIGNIFICATO_QUARANTENA,
+	];
 </script>
 
 <!--
@@ -59,7 +103,6 @@ import { onMount } from "svelte";
 			},
 		],
 	}}
-	
 />
 
 <Modal class="modal-install" isOpen={open} {toggle}>
@@ -68,7 +111,9 @@ import { onMount } from "svelte";
 		Questa pagina può essere istallata come applicazione. Vuoi procedere?
 	</ModalBody>
 	<ModalFooter>
-		<Button color="primary" class="install-btn" on:click={toggle}>Do Something</Button>
+		<Button color="primary" class="install-btn" on:click={toggle}
+			>Do Something</Button
+		>
 		<Button color="secondary" on:click={toggle}>Cancel</Button>
 	</ModalFooter>
 </Modal>
@@ -90,317 +135,4 @@ import { onMount } from "svelte";
 	/>
 </FormGroup>
 
-<Accordion>
-	<!--
-	<AccordionItem>
-		<h4 class="m-0" slot="header">Chi sono i referenti COVID?</h4>
-		<ul>
-			<li>
-				Piccinini: <a href="mailto://covidpiccinini@icannacelli.edu.it"
-					>Latini Maria Teresa</a
-				>
-			</li>
-			<li>
-				Sabin: <a href="mailto://covidsabin@icannacelli.edu.it"
-					>Neri Giuseppa</a
-				>
-			</li>
-			<li>
-				Santoro: <a href="mailto://covidsantoro@icannacelli.edu.it"
-					>Cerasi Maria Grazia</a
-				>
-			</li>
-			<li>
-				Quaranta: <a href="mailto://covidquaranta@icannacelli.edu.it"
-					>Balduino Geppina</a
-				>
-			</li>
-		</ul>
-	</AccordionItem>
-	-->
-
-	<AccordionItem>
-		<h4 class="m-0" slot="header">Mio figlio è positivo, che devo fare?</h4>
-		<ul>
-			<li>
-				Comunicare subito la positività al referente Covid e in copia alla segreteria tramite email:
-				<ul>
-					<li>
-						<a
-							href="mailto:covidpiccinini@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Comunicazione%20Posititivà"
-							>Piccinini (Latini Maria Teresa)</a
-						>
-					</li>
-					<li>
-						<a
-							href="mailto:covidsantoro@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Comunicazione%20Posititivà"
-							>Santoro (Cerasi Maria Grazia)</a
-						>
-					</li>
-				</ul>
-			</li>
-			<li>
-				Comunicare al medico/pediatra la positività per attivare la
-				Quarantena del bambino.
-			</li>
-			<li>
-				Richiedere l'attivazione della DAD alla scuola (<a
-					href="https://www.icannacelli.edu.it/area-personale/circolari-2021-2022/1320-circolare-n-211-attivazione-did-e-dad"
-					>vedi circ. n. 211</a
-				>)
-			</li>
-			<li>
-				Un test antigenico positivo non necessita di conferma con
-				tampone molecolare
-			</li>
-		</ul>
-	</AccordionItem>
-
-	<AccordionItem>
-		<h4 class="m-0" slot="header">
-			Un bambino della classe è positivo, che devo fare?
-		</h4>
-		<ul>
-			<li>
-				Attendere che la scuola comunichi il caso di positività alla
-				classe
-			</li>
-			<li>
-				Attendere che il/la rappresentante dia comunicazione di come
-				procedere
-			</li>
-			<li>
-				La comunicazione della scuola viene inviata all'account
-				dell'alunno
-			</li>
-			{#if rappresentante}
-				<li>
-					Tranquillizzare i genitori, la procedura è presa in carico
-					dalla scuola
-				</li>
-				<li>
-					Per accelerare la procedura di attivazione del testing
-					T0/T5, inviare una mail a supporto della referente Covid:
-					<ul>
-						<li>
-							<a
-								href="mailto:covidpiccinini@icannacelli.edu.it"
-								>Piccinini (Latini Maria Teresa)</a
-							>
-						</li>
-						<li>
-							<a
-								href="mailto:covidsantoro@icannacelli.edu.it"
-								>Santoro (Cerasi Maria Grazia)</a
-							>
-						</li>
-					</ul>
-				</li>
-			{/if}
-		</ul>
-	</AccordionItem>
-
-	<AccordionItem>
-		<h4 class="m-0" slot="header">
-			La referente Covid ha mandato una email alla classe dicendo di fare
-			il tampone T0 e T5. Cosa fare?
-		</h4>
-		<ul>
-			<li>
-				Si prenota, entro 24h dalla ricezione della mail, un tampone
-				tramite sito della Regione Lazio oppure nei centri e farmacie
-				autorizzate
-			</li>
-			<li>
-				Tramite auto-prenotazione sul <a
-					href="https://tamponecovid-aslroma2.accetta.info/"
-					>sito della ASL Roma 2</a
-				>
-			</li>
-			<li>
-				Tramite punti/centri autorizzati dalla Regione, incluse le
-				farmacie, o sul sito <a
-					href="www.salutelazio.it/prenota-drive-in"
-					>Prenota Drive-In</a
-				>
-			</li>
-			<li>
-				Chi decide di non effettuare il tampone va in quarantena per 10
-				giorni
-			</li>
-			{#if rappresentante}
-				<li>
-					Si evidenzia alla classe che è bene muoversi in
-					contemporanea sulla giornata per garantire il rientro in
-					contemporanea delliintero gruppo. Senza tutti i tamponi non
-					si può rientrare
-				</li>
-			{/if}
-		</ul>
-	</AccordionItem>
-
-	<AccordionItem>
-		<h4 class="m-0" slot="header">Tampone T0: rapido o molecolare?</h4>
-		Rapido antigenico o molecolare
-	</AccordionItem>
-
-	<AccordionItem>
-		<h4 class="m-0" slot="header">Tampone T5: rapido o molecolare?</h4>
-		Rapido antigenico o molecolare
-	</AccordionItem>
-
-	<AccordionItem>
-		<h4 class="m-0" slot="header">
-			Serve la prescrizione medica/pediatra?
-		</h4>
-		Con o senza prescrizione medica
-	</AccordionItem>
-
-	<AccordionItem>
-		<h4 class="m-0" slot="header">
-			In attesa di un referto (tampone molecolare o antigenico) posso
-			rientrare a scuola?
-		</h4>
-		No
-	</AccordionItem>
-
-	<AccordionItem>
-		<h4 class="m-0" slot="header">Dopo il T0 cosa fare?</h4>
-		<ul>
-			<li>
-				Tutti i genitori inviano referto al referente Covid della
-				scuola e in copia alla segreteria:
-				<ul>
-					<li>
-						<a
-							href="mailto:covidpiccinini@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Referto%20Covid"
-							>Piccinini (Latini Maria Teresa)</a
-						>
-					</li>
-					<li>
-						<a
-							href="mailto:covidsantoro@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Referto%20Covid"
-							>Santoro (Cerasi Maria Grazia)</a
-						>
-					</li>
-				</ul>
-			</li>
-			<li>
-				Il rappresentante comunica la negatività
-				dell'intero gruppo o parziale (indicando i nomi mancanti), o eventuale secondo positivo, 
-				alla referente Covid e in copia alla segreteria e sul gruppo Whatsapp delle maestre
-			</li>
-			<li>
-				Il gruppo classe rientra in contemporanea, solo con tutti i
-				referti negativi inviati e con copia sul cellulare o cartacea 
-				da far visionare all'ingresso
-			</li>
-		</ul>
-	</AccordionItem>
-
-	<AccordionItem>
-		<h4 class="m-0" slot="header">Dopo il T5 cosa fare?</h4>
-		<ul>
-			<li>
-				Tutti i genitori inviano referto alla scuola e in copia al referente Covid:
-				<ul>
-					<li>
-						<a
-							href="mailto:rmic8ek00l@istruzione.it?cc=covidpiccinini@icannacelli.edu.it&subject=Refereto%20Covid"
-							>Piccinini (Latini Maria Teresa)</a
-						>
-					</li>
-					<li>
-						<a
-							href="mailto:rmic8ek00l@istruzione.it?cc=covidsantoro@icannacelli.edu.it&subject=Refereto%20Covid"
-							>Santoro (Cerasi Maria Grazia)</a
-						>
-					</li>
-				</ul>
-			</li>
-			<li>
-				Il rappresentante comunica al referente Covid negatività
-				dell'intero gruppo o eventuale secondo positivo (Vedi T0)
-			</li>
-			<li>
-				Il gruppo classe rientra in contemporanea, solo con tutti i
-				referenti negativi inviati e con copia sul cellulare o cartacea 
-				da far visionare all'ingresso dal genitore
-			</li>
-		</ul>
-	</AccordionItem>
-
-	<AccordionItem>
-		<h4 class="m-0" slot="header">Cosa succede col 2° caso positivo?</h4>
-		<ul>
-			<li>Quarantena per tutti di 10 giorni</li>
-			<li>La scuola attiva la DAD</li>
-		</ul>
-	</AccordionItem>
-
-	<AccordionItem>
-		<h4 class="m-0" slot="header">Come si esce dalla quarantena?</h4>
-		<ul>
-			<li>Tampone negativo rapido o molecolare dopo 10 giorni</li>
-			<li>Comunicazione del referto via e-mail (vedi sopra)</li>
-			<li>
-				Ognuno rientra dopo aver comunicato referto negativo e con copia
-				sul cellulare da far visionare all'ingresso
-			</li>
-		</ul>
-	</AccordionItem>
-
-	<AccordionItem>
-		<h4 class="m-0" slot="header">
-			Un bambino della classe è positivo ma è assente da scuola da più di
-			48h. Cosa devo fare?
-		</h4>
-		La classe non è coinvolta, ma i bambini devono comunque monitorare l'eventuale
-		comparsa di sintomi
-	</AccordionItem>
-
-	<AccordionItem>
-		<h4 class="m-0" slot="header">
-			Quando si applica la Quarantena, la Sorveglianza con testing e
-			l'Auto-sorveglianza?
-		</h4>
-		Si applicano solo se il caso positivo Covid 19 ha frequentato la scuola:
-		<ul>
-			<li>
-				nei 2 giorni precedenti l'insorgenza dei sintomi per il soggetto
-				positivo sintomatico
-			</li>
-			<li>
-				nei 2 giorni precedenti l'esecuzione del tampone positivo per il
-				soggetto positivo asintomatico
-			</li>
-		</ul>
-	</AccordionItem>
-
-	<AccordionItem>
-		<h4 class="m-0" slot="header">
-			Cosa significa sorveglianza con testing?
-		</h4>
-		La sorveglianza con testing prevede l'effettuazione di un test T0 e, nel
-		caso in cui non si riscontrino ulteriori positività, un test T5 da effettuare
-		5 giorni dopo il test T0. Evitare assembramenti, attività sportive in gruppo,
-		partecipazione a feste, ecc. Chi non procede con i test T0 e T5 deve fare
-		la quarantena e informare il Referente scolastico
-	</AccordionItem>
-
-	<AccordionItem>
-		<h4 class="m-0" slot="header">Cosa significa Quarantena?</h4>
-		Durante il periodo di quarantena si deve rimanere a casa, non si può uscire
-		e non si devono ricevere visite per i 10 giorni previsti. Fatte salve le
-		norme di distanziamento e quelle igienico sanitarie.
-	</AccordionItem>
-
-	<!--
-	<AccordionItem>
-		<h4 class="m-0" slot="header">
-			Si può andare a scuola in attesa del tampone T0 e del T5?
-		</h4>
-		No. L'attività in presenza è sospesa in attesa di risposta del test T0 e T5 da parte del gruppo classe
-	</AccordionItem>
-	-->
-</Accordion>
+<Questions {rappresentante} questions={primaria} />
