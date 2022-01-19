@@ -132,7 +132,7 @@
                 <li>
                     Tramite punti/centri autorizzati dalla Regione, incluse le
                     farmacie, o sul sito <a
-                        href="www.salutelazio.it/prenota-drive-in"
+                        href="https://www.salutelazio.it/prenota-drive-in"
                         >Prenota Drive-In</a
                     >
                 </li>
