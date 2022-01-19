@@ -1,12 +1,28 @@
 <script lang="ts">
-	import { Accordion, AccordionItem, FormGroup, Input } from "sveltestrap";
+	import { Accordion, AccordionItem, Button, FormGroup, Input, Modal, ModalBody, ModalFooter, ModalHeader } from "sveltestrap";
 	import SvelteSeo from "svelte-seo";
-	import { Alert } from 'sveltestrap';
+	import { Alert } from "sveltestrap";
+import { onMount } from "svelte";
 
 	let rappresentante = false;
 
-	$: console.log(rappresentante);
+	let open = false;
+
+	function toggle() {
+		open = !open
+	}
+
+	onMount(() => {
+		let event = new Event('beforeinstallprompt')
+		window.dispatchEvent(event)		
+	})
 </script>
+
+<!--
+<svelte:head>
+	<script src='/index.js'></script>
+</svelte:head>
+-->
 
 <SvelteSeo
 	twitter={{
@@ -43,7 +59,19 @@
 			},
 		],
 	}}
+	
 />
+
+<Modal class="modal-install" isOpen={open} {toggle}>
+	<ModalHeader {toggle}>Istalla</ModalHeader>
+	<ModalBody>
+		Questa pagina può essere istallata come applicazione. Vuoi procedere?
+	</ModalBody>
+	<ModalFooter>
+		<Button color="primary" class="install-btn" on:click={toggle}>Do Something</Button>
+		<Button color="secondary" on:click={toggle}>Cancel</Button>
+	</ModalFooter>
+</Modal>
 
 <Alert color="primary">
 	<h1>Guida rapida per la gestione Covid a scuola</h1>
@@ -54,7 +82,12 @@
 </Alert>
 
 <FormGroup>
-    <Input bind:checked={rappresentante} id="rappresentante" type="checkbox" label="Sono un rappresentante" />
+	<Input
+		bind:checked={rappresentante}
+		id="rappresentante"
+		type="checkbox"
+		label="Sono un rappresentante"
+	/>
 </FormGroup>
 
 <Accordion>
@@ -90,22 +123,25 @@
 		<h4 class="m-0" slot="header">Mio figlio è positivo, che devo fare?</h4>
 		<ul>
 			<li>
-				Comunicare subito la positività alla scuola e in copia alla referente Covid tramite email:
+				Comunicare subito la positività al referente Covid e in copia alla segreteria tramite email:
 				<ul>
 					<li>
-						<a href="mailto:rmic8ek00l@istruzione.it?cc=covidpiccinini@icannacelli.edu.it&subject=Comunicazione%20Posititivà"
+						<a
+							href="mailto:covidpiccinini@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Comunicazione%20Posititivà"
 							>Piccinini (Latini Maria Teresa)</a
 						>
 					</li>
 					<li>
-						<a href="mailto:rmic8ek00l@istruzione.it?cc=covidsantoro@icannacelli.edu.it&subject=Comunicazione%20Posititivà"
+						<a
+							href="mailto:covidsantoro@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Comunicazione%20Posititivà"
 							>Santoro (Cerasi Maria Grazia)</a
 						>
 					</li>
 				</ul>
 			</li>
 			<li>
-				Comunicare al medico/pediatra la positività per attivare la Quarantena del bambino.
+				Comunicare al medico/pediatra la positività per attivare la
+				Quarantena del bambino.
 			</li>
 			<li>
 				Richiedere l'attivazione della DAD alla scuola (<a
@@ -114,7 +150,8 @@
 				>)
 			</li>
 			<li>
-				Un test antigenico positivo non necessita di conferma con tampone molecolare
+				Un test antigenico positivo non necessita di conferma con
+				tampone molecolare
 			</li>
 		</ul>
 	</AccordionItem>
@@ -137,24 +174,30 @@
 				dell'alunno
 			</li>
 			{#if rappresentante}
-			<li>Tranquillizzare i genitori, la procedura è presa in carico dalla scuola</li>
-			<li>Per accelerare la procedura di attivazione del testing T0/T5, inviare una mail a supporto della referente Covid:
-				<ul>
-					<li>
-						Piccinini: <a href="mailto:covidpiccinini@icannacelli.edu.it"
-							>Latini Maria Teresa</a
-						>
-					</li>
-					<li>
-						Santoro: <a href="mailto:covidsantoro@icannacelli.edu.it"
-							>Cerasi Maria Grazia</a
-						>
-					</li>
-				</ul>
-			</li>
+				<li>
+					Tranquillizzare i genitori, la procedura è presa in carico
+					dalla scuola
+				</li>
+				<li>
+					Per accelerare la procedura di attivazione del testing
+					T0/T5, inviare una mail a supporto della referente Covid:
+					<ul>
+						<li>
+							<a
+								href="mailto:covidpiccinini@icannacelli.edu.it"
+								>Piccinini (Latini Maria Teresa)</a
+							>
+						</li>
+						<li>
+							<a
+								href="mailto:covidsantoro@icannacelli.edu.it"
+								>Santoro (Cerasi Maria Grazia)</a
+							>
+						</li>
+					</ul>
+				</li>
 			{/if}
 		</ul>
-
 	</AccordionItem>
 
 	<AccordionItem>
@@ -186,7 +229,12 @@
 				giorni
 			</li>
 			{#if rappresentante}
-			<li>Si evidenzia alla classe che è bene muoversi in contemporanea sulla giornata per garantire il rientro in contemporanea delliintero gruppo. Senza tutti i tamponi non si può rientrare</li>
+				<li>
+					Si evidenzia alla classe che è bene muoversi in
+					contemporanea sulla giornata per garantire il rientro in
+					contemporanea delliintero gruppo. Senza tutti i tamponi non
+					si può rientrare
+				</li>
 			{/if}
 		</ul>
 	</AccordionItem>
@@ -220,28 +268,32 @@
 		<h4 class="m-0" slot="header">Dopo il T0 cosa fare?</h4>
 		<ul>
 			<li>
-				Tutti i genitori inviano referto al referente Covid della scuola:
+				Tutti i genitori inviano referto al referente Covid della
+				scuola:
 				<ul>
 					<li>
-						Piccinini: <a href="mailto:rmic8ek00l@istruzione.it?cc=covidpiccinini@icannacelli.edu.it&subject=Referto%20Covid"
-							>Latini Maria Teresa</a
+						<a
+							href="mailto:rmic8ek00l@istruzione.it?cc=covidpiccinini@icannacelli.edu.it&subject=Referto%20Covid"
+							>Piccinini (Latini Maria Teresa)</a
 						>
 					</li>
 					<li>
-						Santoro: <a href="mailto:rmic8ek00l@istruzione.it?cc=covidsantoro@icannacelli.edu.it&subject=Referto%20Covid"
-							>Cerasi Maria Grazia</a
+						<a
+							href="mailto:rmic8ek00l@istruzione.it?cc=covidsantoro@icannacelli.edu.it&subject=Referto%20Covid"
+							>Santoro (Cerasi Maria Grazia)</a
 						>
 					</li>
 				</ul>
 			</li>
 			<li>
-				Il rappresentante comunica alla referente Covid negatività
-				dell'intero gruppo o eventuale secondo positivo
+				Il rappresentante comunica la negatività
+				dell'intero gruppo o parziale (indicando i nomi mancanti), o eventuale secondo positivo, 
+				alla referente Covid e in copia alla segreteria e sul gruppo whatsapp delle maestre
 			</li>
 			<li>
 				Il gruppo classe rientra in contemporanea, solo con tutti i
-				referti inviati e con copia sul cellulare da far visionare
-				all'ingresso
+				referti negativi inviati e con copia sul cellulare o cartacea 
+				da far visionare all'ingresso
 			</li>
 		</ul>
 	</AccordionItem>
@@ -250,28 +302,30 @@
 		<h4 class="m-0" slot="header">Dopo il T5 cosa fare?</h4>
 		<ul>
 			<li>
-				Tutti i genitori inviano referto al referente Covid della scuola
+				Tutti i genitori inviano referto alla scuola e in copia al referente Covid:
 				<ul>
 					<li>
-						Piccinini: <a href="mailto:rmic8ek00l@istruzione.it?cc=covidpiccinini@icannacelli.edu.it&subject=Refereto%20Covid"
-							>Latini Maria Teresa</a
+						<a
+							href="mailto:rmic8ek00l@istruzione.it?cc=covidpiccinini@icannacelli.edu.it&subject=Refereto%20Covid"
+							>Piccinini (Latini Maria Teresa)</a
 						>
 					</li>
 					<li>
-						Santoro: <a href="mailto:rmic8ek00l@istruzione.it?cc=covidsantoro@icannacelli.edu.it&subject=Refereto%20Covid"
-							>Cerasi Maria Grazia</a
+						<a
+							href="mailto:rmic8ek00l@istruzione.it?cc=covidsantoro@icannacelli.edu.it&subject=Refereto%20Covid"
+							>Santoro (Cerasi Maria Grazia)</a
 						>
 					</li>
 				</ul>
 			</li>
 			<li>
 				Il rappresentante comunica al referente Covid negatività
-				dell'intero gruppo o eventuale secondo positivo
+				dell'intero gruppo o eventuale secondo positivo (Vedi T0)
 			</li>
 			<li>
 				Il gruppo classe rientra in contemporanea, solo con tutti i
-				referenti inviati e con copia sul cellulare da far visionare
-				all'ingresso
+				referenti negativi inviati e con copia sul cellulare o cartacea 
+				da far visionare all'ingresso dal genitore
 			</li>
 		</ul>
 	</AccordionItem>
