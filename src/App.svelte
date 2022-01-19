@@ -269,17 +269,17 @@ import { onMount } from "svelte";
 		<ul>
 			<li>
 				Tutti i genitori inviano referto al referente Covid della
-				scuola:
+				scuola e in copia alla segreteria:
 				<ul>
 					<li>
 						<a
-							href="mailto:rmic8ek00l@istruzione.it?cc=covidpiccinini@icannacelli.edu.it&subject=Referto%20Covid"
+							href="mailto:covidpiccinini@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Referto%20Covid"
 							>Piccinini (Latini Maria Teresa)</a
 						>
 					</li>
 					<li>
 						<a
-							href="mailto:rmic8ek00l@istruzione.it?cc=covidsantoro@icannacelli.edu.it&subject=Referto%20Covid"
+							href="mailto:covidsantoro@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Referto%20Covid"
 							>Santoro (Cerasi Maria Grazia)</a
 						>
 					</li>
@@ -288,7 +288,7 @@ import { onMount } from "svelte";
 			<li>
 				Il rappresentante comunica la negatività
 				dell'intero gruppo o parziale (indicando i nomi mancanti), o eventuale secondo positivo, 
-				alla referente Covid e in copia alla segreteria e sul gruppo whatsapp delle maestre
+				alla referente Covid e in copia alla segreteria e sul gruppo Whatsapp delle maestre
 			</li>
 			<li>
 				Il gruppo classe rientra in contemporanea, solo con tutti i
