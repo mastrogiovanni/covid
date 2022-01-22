@@ -15,6 +15,10 @@
 		T0_TIPO,
 		T5_TIPO,
 		USCITA_QUARANTENA,
+		REFERENTE_MANDA_QUARANTENA,
+		ALUNNO_POSITIVO_INFANZIA,
+		FIGLIO_POSITIVO_INFANZIA,
+TAMPONE_RIENTRO_QUARANTENA,
 	} from "./constant";
 	import Questions from "./Questions.svelte";
 	import {
@@ -60,6 +64,57 @@
 		SORVEGLIANZA_TESTING,
 		SIGNIFICATO_QUARANTENA,
 	];
+
+	const infanzia = [
+		FIGLIO_POSITIVO_INFANZIA,
+		ALUNNO_POSITIVO_INFANZIA,
+		REFERENTE_MANDA_QUARANTENA,
+		TAMPONE_RIENTRO_QUARANTENA,
+		SERVE_PRESCRIZIONE,
+		POSSO_RIENTRARE,
+		USCITA_QUARANTENA,
+		BIMBO_48_ORE,
+		SORVEGLIANZA_TESTING,
+		SIGNIFICATO_QUARANTENA,
+	];
+
+	let school = "primaria";
+
+	let questions = [];
+	let preview = false;
+
+	onMount(() => {
+		/*
+		let s = localStorage?.getItem("school");
+		if (['infanzia', 'primaria', 'secondaria'].includes(s)) {
+			school = s;
+		}
+		else {
+			school = "primaria"
+		}
+		*/
+		if ((new URLSearchParams(window.location.search)).get("preview")) {
+			preview = true;
+			// school = "primaria"
+		}
+	})
+
+	$: {
+		if (school === "infanzia") {
+			questions = infanzia;
+		} else if (school === "primaria") {
+			questions = primaria;
+		} else if (school === "secondaria") {
+			questions = [];
+		}
+	}
+
+	function choose(s) {
+		school = s;
+		if (localStorage) {
+			localStorage.setItem("school", school)
+		}
+	}
 </script>
 
 <!--
@@ -120,11 +175,58 @@
 
 <Alert color="primary">
 	<h1>Guida rapida per la gestione Covid a scuola</h1>
+	<small>Scegli la scuola di appartenenza</small>
 </Alert>
 
-<Alert color="secondary">
-	<h3>Scuola Primaria</h3>
-</Alert>
+<div class="row">
+	{#if preview}
+	<div class="col" on:click={() => {choose('infanzia')}}>
+		<Alert color="{school === 'infanzia' ? 'primary' : 'secondary' }" style="padding: 4px; text-align: center;">
+			<h6>Infanzia</h6>
+			<small>{#if school !== 'infanzia'}seleziona{:else}-{/if}</small>
+		</Alert>
+	</div>
+	{/if}
+
+	<div class="col" on:click={() => {choose('primaria')}}>
+		<Alert color="{school === 'primaria' ? 'primary' : 'secondary' }" style="padding: 4px; text-align: center;">
+			<h6>Primaria</h6>
+			<small>{#if school !== 'primaria'}seleziona{:else}-{/if}</small>
+		</Alert>
+	</div>
+
+	<!--
+	<div class="col" on:click={() => {choose('secondaria')}}>
+		<Alert color="{school === 'secondaria' ? 'primary' : 'secondary' }" style="padding: 4px; text-align: center;">
+			<h6>Secondaria</h6>
+			<small>{#if school !== 'secondaria'}seleziona{:else}-{/if}</small>
+		</Alert>
+	</div>
+	-->
+</div>
+
+<!--
+<div class="row">
+	<div class="col" style="{school === 'infanzia' ? 'background-color: green' : '' }; text-align:center; border-radius: 15px; margin: 10px; padding-top: 10px;" on:click={() => {school = 'infanzia'}}>
+		<Alert color="primary" >
+			<h3>Infanzia</h3>
+			<small>{#if school !== 'infanzia'}clicca qui per selezionare{:else}-{/if}</small>
+		</Alert>
+	</div>
+	<div class="col" style="{school === 'primaria' ? 'background-color: green' : '' }; text-align:center; border-radius: 15px; margin: 10px; padding-top: 10px;" on:click={() => {school = 'primaria'}}>
+		<Alert color="secondary">
+			<h3>Primaria</h3>
+			<small>{#if school !== 'primaria'}clicca qui per selezionare{:else}-{/if}</small>
+		</Alert>
+	</div>
+	<div class="col" style="{school === 'secondaria' ? 'background-color: green' : '' }; text-align:center; border-radius: 15px; margin: 10px; padding-top: 10px;" on:click={() => {school = 'secondaria'}}>
+		<Alert color="success">
+			<h3>Secondaria</h3>
+			<small>{#if school !== 'secondaria'}clicca qui per selezionare{:else}-{/if}</small>
+		</Alert>
+	</div>
+</div>
+-->
 
 <FormGroup>
 	<Input
@@ -135,4 +237,4 @@
 	/>
 </FormGroup>
 
-<Questions {rappresentante} questions={primaria} />
+<Questions {rappresentante} {questions} {school} />

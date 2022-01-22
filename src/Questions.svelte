@@ -1,13 +1,18 @@
 <script>
+    import AddressList from "./AddressList.svelte";
     import { Accordion, AccordionItem } from "sveltestrap";
     import {
         ALUNNO_POSITIVO,
+        ALUNNO_POSITIVO_INFANZIA,
         BIMBO_48_ORE,
         DOPO_T0,
         DOPO_T5,
         FIGLIO_POSITIVO,
+        FIGLIO_POSITIVO_INFANZIA,
+        FIGLIO_POSITIVO_SECONDARIA,
         POSSO_RIENTRARE,
         QUANDO_APPLICHI_QUARANTENA_SORVEGLIANZA,
+        REFERENTE_MANDA_QUARANTENA,
         REFERENTE_MANDA_T0_T5,
         SECONDO_POSITIVO,
         SERVE_PRESCRIZIONE,
@@ -15,11 +20,13 @@
         SORVEGLIANZA_TESTING,
         T0_TIPO,
         T5_TIPO,
+        TAMPONE_RIENTRO_QUARANTENA,
         USCITA_QUARANTENA,
     } from "./constant";
 
     export let rappresentante = false;
     export let questions = [];
+    export let school = undefined;
 </script>
 
 <Accordion>
@@ -32,20 +39,7 @@
                 <li>
                     Comunicare subito la positività al referente Covid e in
                     copia alla segreteria tramite email:
-                    <ul>
-                        <li>
-                            <a
-                                href="mailto://covidpiccinini@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Comunicazione%20Posititivà"
-                                >Piccinini (Latini Maria Teresa)</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                href="mailto://covidsantoro@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Comunicazione%20Posititivà"
-                                >Santoro (Cerasi Maria Grazia)</a
-                            >
-                        </li>
-                    </ul>
+                    <AddressList {school} subject="Comunicazione Positività" />
                 </li>
                 <li>
                     Comunicare al medico/pediatra la positività per attivare la
@@ -56,6 +50,52 @@
                         href="https://www.icannacelli.edu.it/area-personale/circolari-2021-2022/1320-circolare-n-211-attivazione-did-e-dad"
                         >vedi circ. n. 211</a
                     >)
+                </li>
+                <li>
+                    Un test antigenico positivo non necessita di conferma con
+                    tampone molecolare
+                </li>
+            </ul>
+        </AccordionItem>
+    {/if}
+
+    {#if questions.includes(FIGLIO_POSITIVO_INFANZIA)}
+        <AccordionItem>
+            <h4 class="m-0" slot="header">
+                Mio figlio è positivo, che devo fare?
+            </h4>
+            <ul>
+                <li>
+                    Comunicare subito la positività al referente Covid e in
+                    copia alla segreteria tramite email:
+                    <AddressList {school} subject="Comunicazione Positività" />
+                </li>
+                <li>
+                    Comunicare al medico/pediatra la positività per attivare la
+                    Quarantena del bambino
+                </li>
+                <li>
+                    Un test antigenico positivo <b>non necessita</b> di conferma
+                    con tampone molecolare
+                </li>
+            </ul>
+        </AccordionItem>
+    {/if}
+
+    {#if questions.includes(FIGLIO_POSITIVO_SECONDARIA)}
+        <AccordionItem>
+            <h4 class="m-0" slot="header">
+                Mio figlio è positivo, che devo fare?
+            </h4>
+            <ul>
+                <li>
+                    Comunicare subito la positività al referente Covid e in
+                    copia alla segreteria tramite email:
+                    <AddressList {school} subject="Comunicazione Positività" />
+                </li>
+                <li>
+                    Comunicare al medico/pediatra la positività per attivare la
+                    Quarantena del bambino.
                 </li>
                 <li>
                     Un test antigenico positivo non necessita di conferma con
@@ -90,21 +130,49 @@
                     </li>
                     <li>
                         Per accelerare la procedura di attivazione del testing
-                        T0/T5, inviare una mail a supporto alla referente
+                        T0/T5, inviare una mail a supporto alla referente Covid:
+                        <AddressList
+                            {school}
+                            noSchool={true}
+                            subject="Comunicazione Positività"
+                        />
+                    </li>
+                {/if}
+            </ul>
+        </AccordionItem>
+    {/if}
+
+    {#if questions.includes(ALUNNO_POSITIVO_INFANZIA)}
+        <AccordionItem>
+            <h4 class="m-0" slot="header">
+                Un bambino della classe è positivo, che devo fare?
+            </h4>
+            <ul>
+                <li>
+                    Attendere che la scuola comunichi il caso di positività alla
+                    classe
+                </li>
+                <li>
+                    Attendere che il/la rappresentante dia comunicazione di come
+                    procedere
+                </li>
+                <li>
+                    La comunicazione della scuola viene inviata all'account
+                    dell'alunno
+                </li>
+                {#if rappresentante}
+                    <li>
+                        Tranquillizzare i genitori, la procedura è presa in
+                        carico dalla scuola
+                    </li>
+                    <li>
+                        Per accelerare la procedura di attivazione della
+                        Quarantena, inviare una mail a supporto alla referente
                         Covid:
-                        <ul>
-                            <li>
-                                <a
-                                    href="mailto://covidpiccinini@icannacelli.edu.it"
-                                    >Piccinini (Latini Maria Teresa)</a
-                                >
-                            </li>
-                            <li>
-                                <a href="mailto://covidsantoro@icannacelli.edu.it"
-                                    >Santoro (Cerasi Maria Grazia)</a
-                                >
-                            </li>
-                        </ul>
+                        <AddressList
+                            {school}
+                            subject="Comunicazione Positività"
+                        />
                     </li>
                 {/if}
             </ul>
@@ -152,6 +220,48 @@
         </AccordionItem>
     {/if}
 
+    {#if questions.includes(REFERENTE_MANDA_QUARANTENA)}
+        <AccordionItem>
+            <h4 class="m-0" slot="header">
+                La referente Covid ha mandato una email alla classe dicendo di
+                aver avviato la procedura per la Quarentena per 10 gg. Cosa
+                fare?
+            </h4>
+            <ul>
+                <li>Quarantena per tutti di 10 giorni</li>
+                <li>La scuola attiva la DAD</li>
+            </ul>
+        </AccordionItem>
+    {/if}
+
+    {#if questions.includes(TAMPONE_RIENTRO_QUARANTENA)}
+        <AccordionItem>
+            <h4 class="m-0" slot="header">
+                Come si effettua il tampone di rientro dalla Quarentena?
+            </h4>
+            <ul>
+                <li>
+                    Si prenota, entro 24h dalla ricezione della mail, un tampone
+                    tramite sito della Regione Lazio oppure nei centri e
+                    farmacie autorizzate.
+                </li>
+                <li>
+                    Tramite auto-prenotazione sul <a
+                        href="https://tamponecovid-aslroma2.accetta.info/"
+                        >sito della ASL Roma 2</a
+                    >
+                </li>
+                <li>
+                    Tramite punti/centri autorizzati dalla Regione, incluse le
+                    farmacie, o sul sito <a
+                        href="https://www.salutelazio.it/prenota-drive-in"
+                        >Prenota Drive-In</a
+                    >
+                </li>
+            </ul>
+        </AccordionItem>
+    {/if}
+
     {#if questions.includes(T0_TIPO)}
         <AccordionItem>
             <h4 class="m-0" slot="header">Tampone T0: rapido o molecolare?</h4>
@@ -192,20 +302,7 @@
                 <li>
                     Tutti i genitori inviano referto al referente Covid e in
                     copia alla segreteria tramite email:
-                    <ul>
-                        <li>
-                            <a
-                                href="mailto://covidpiccinini@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Referto%20Covid"
-                                >Piccinini (Latini Maria Teresa)</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                href="mailto://covidsantoro@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Referto%20Covid"
-                                >Santoro (Cerasi Maria Grazia)</a
-                            >
-                        </li>
-                    </ul>
+                    <AddressList {school} subject="Risultato T0" />
                 </li>
                 <li>
                     Il rappresentante comunica la negatività dell'intero gruppo
@@ -229,20 +326,7 @@
                 <li>
                     Tutti i genitori inviano referto al referente Covid e in
                     copia alla segreteria tramite email:
-                    <ul>
-                        <li>
-                            <a
-                                href="mailto://covidpiccinini@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Referto%20Covid"
-                                >Piccinini (Latini Maria Teresa)</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                href="mailto://covidsantoro@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Referto%20Covid"
-                                >Santoro (Cerasi Maria Grazia)</a
-                            >
-                        </li>
-                    </ul>
+                    <AddressList {school} subject="Risultato T5" />
                 </li>
                 <li>
                     Il rappresentante comunica al referente Covid negatività
@@ -278,22 +362,9 @@
             <ul>
                 <li>Tampone negativo rapido o molecolare dopo 10 giorni</li>
                 <li>
-                    Comunicazione del referto al referente Covid e in
-                    copia alla segreteria tramite email:
-                    <ul>
-                        <li>
-                            <a
-                                href="mailto://covidpiccinini@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Referto%20Covid"
-                                >Piccinini (Latini Maria Teresa)</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                href="mailto://covidsantoro@icannacelli.edu.it?cc=rmic8ek00l@istruzione.it&subject=Referto%20Covid"
-                                >Santoro (Cerasi Maria Grazia)</a
-                            >
-                        </li>
-                    </ul>
+                    Comunicazione del referto al referente Covid e in copia alla
+                    segreteria tramite email:
+                    <AddressList {school} subject="Risultato T10" />
                 </li>
                 <li>
                     Ognuno rientra dopo aver comunicato referto negativo e con

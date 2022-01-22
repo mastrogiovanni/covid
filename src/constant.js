@@ -1,6 +1,15 @@
 export const FIGLIO_POSITIVO = "figlio.positivo"
+export const FIGLIO_POSITIVO_INFANZIA = "figlio.positivo.infanzia"
+export const FIGLIO_POSITIVO_SECONDARIA = "figlio.positivo.secondaria"
+
 export const ALUNNO_POSITIVO = "alunno.positivo"
+export const ALUNNO_POSITIVO_INFANZIA = "alunno.positivo.infanzia"
+
 export const REFERENTE_MANDA_T0_T5 = "referente.manda.t0.t5"
+export const REFERENTE_MANDA_QUARANTENA = "referente.manda.quarantena"
+
+export const TAMPONE_RIENTRO_QUARANTENA = "tampone.rientro.quarantena"
+
 export const T0_TIPO = "t0.tipo"
 export const T5_TIPO = "t5.tipo"
 export const SERVE_PRESCRIZIONE = "serve.prescrizione"
@@ -14,4 +23,6 @@ export const QUANDO_APPLICHI_QUARANTENA_SORVEGLIANZA = "quando.applichi.quarante
 export const SORVEGLIANZA_TESTING = "sorveglianza.testing"
 export const SIGNIFICATO_QUARANTENA = "significato.quarantena"
 
-
+/*
+FIGLIO_POSITIVO_SECONDARIA
+*/
