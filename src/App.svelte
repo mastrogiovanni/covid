@@ -18,9 +18,17 @@
 		REFERENTE_MANDA_QUARANTENA,
 		ALUNNO_POSITIVO_INFANZIA,
 		FIGLIO_POSITIVO_INFANZIA,
-TAMPONE_RIENTRO_QUARANTENA,
-FIGLIO_POSITIVO_SECONDARIA,
-QUANDO_APPLICHI_QUARANTENA_INFANZIA,
+		TAMPONE_RIENTRO_QUARANTENA,
+		FIGLIO_POSITIVO_SECONDARIA,
+		QUANDO_APPLICHI_QUARANTENA_INFANZIA,
+		REFERENTE_SECONDARIA_ALUNNO_DUE,
+		REFERENTE_SECONDARIA_ALUNNO_TRE,
+		FIGLIO_POSITIVO_SECONDARIA_UNO,
+		FIGLIO_POSITIVO_SECONDARIA_DUE,
+		FIGLIO_POSITIVO_SECONDARIA_TRE,
+		REFERENTE_SECONDARIA_ALUNNO_UNO,
+		QUANDO_APPLICHI_QUARANTENA_AUTOSORVEGLIANZA,
+		SIGNIFICATO_AUTOSORVEGLIANZA,
 	} from "./constant";
 	import Questions from "./Questions.svelte";
 	import {
@@ -82,9 +90,19 @@ QUANDO_APPLICHI_QUARANTENA_INFANZIA,
 
 	const secondaria = [
 		FIGLIO_POSITIVO,
-		ALUNNO_POSITIVO
-
-	]
+		FIGLIO_POSITIVO_SECONDARIA_UNO,
+		FIGLIO_POSITIVO_SECONDARIA_DUE,
+		FIGLIO_POSITIVO_SECONDARIA_TRE,
+		REFERENTE_SECONDARIA_ALUNNO_UNO,
+		REFERENTE_SECONDARIA_ALUNNO_DUE,
+		REFERENTE_SECONDARIA_ALUNNO_TRE,
+		TAMPONE_RIENTRO_QUARANTENA,
+		USCITA_QUARANTENA,
+		BIMBO_48_ORE,
+		QUANDO_APPLICHI_QUARANTENA_AUTOSORVEGLIANZA,
+		SIGNIFICATO_AUTOSORVEGLIANZA,
+		SIGNIFICATO_QUARANTENA,
+	];
 
 	let school = "primaria";
 
@@ -101,11 +119,11 @@ QUANDO_APPLICHI_QUARANTENA_INFANZIA,
 			school = "primaria"
 		}
 		*/
-		if ((new URLSearchParams(window.location.search)).get("preview")) {
+		if (new URLSearchParams(window.location.search).get("preview")) {
 			preview = true;
-			school = "secondaria"
+			school = "secondaria";
 		}
-	})
+	});
 
 	$: {
 		if (school === "infanzia") {
@@ -120,7 +138,7 @@ QUANDO_APPLICHI_QUARANTENA_INFANZIA,
 	function choose(s) {
 		school = s;
 		if (localStorage) {
-			localStorage.setItem("school", school)
+			localStorage.setItem("school", school);
 		}
 	}
 </script>
@@ -188,30 +206,59 @@ QUANDO_APPLICHI_QUARANTENA_INFANZIA,
 
 <div class="row">
 	{#if preview}
-	<div class="col" on:click={() => {choose('infanzia')}}>
-		<Alert color="{school === 'infanzia' ? 'primary' : 'secondary' }" style="padding: 4px; text-align: center;">
-			<h6>Infanzia</h6>
-			<small>{#if school !== 'infanzia'}seleziona{:else}-{/if}</small>
-		</Alert>
-	</div>
+		<div
+			class="col"
+			on:click={() => {
+				choose("infanzia");
+			}}
+		>
+			<Alert
+				color={school === "infanzia" ? "primary" : "secondary"}
+				style="padding: 4px; text-align: center;"
+			>
+				<h6>Infanzia</h6>
+				<small
+					>{#if school !== "infanzia"}seleziona{:else}-{/if}</small
+				>
+			</Alert>
+		</div>
 	{/if}
 
-	<div class="col" on:click={() => {choose('primaria')}}>
-		<Alert color="{school === 'primaria' ? 'primary' : 'secondary' }" style="padding: 4px; text-align: center;">
+	<div
+		class="col"
+		on:click={() => {
+			choose("primaria");
+		}}
+	>
+		<Alert
+			color={school === "primaria" ? "primary" : "secondary"}
+			style="padding: 4px; text-align: center;"
+		>
 			<h6>Primaria</h6>
-			<small>{#if school !== 'primaria'}seleziona{:else}-{/if}</small>
+			<small
+				>{#if school !== "primaria"}seleziona{:else}-{/if}</small
+			>
 		</Alert>
 	</div>
 
 	{#if preview}
-	<div class="col" on:click={() => {choose('secondaria')}}>
-		<Alert color="{school === 'secondaria' ? 'primary' : 'secondary' }" style="padding: 4px; text-align: center;">
-			<h6>Secondaria</h6>
-			<small>{#if school !== 'secondaria'}seleziona{:else}-{/if}</small>
-		</Alert>
-	</div>
+		<div
+			class="col"
+			on:click={() => {
+				choose("secondaria");
+			}}
+		>
+			<Alert
+				color={school === "secondaria" ? "primary" : "secondary"}
+				style="padding: 4px; text-align: center;"
+			>
+				<h6>Secondaria</h6>
+				<small
+					>{#if school !== "secondaria"}seleziona{:else}-{/if}</small
+				>
+			</Alert>
+		</div>
 	{/if}
-
 </div>
 
 <!--

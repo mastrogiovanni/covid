@@ -19,7 +19,7 @@
                 <a href={email("covidquaranta@icannacelli.edu.it")}>Quaranta (Balduino Geppina)</a>
             </li>
         {/if}
-        {#if ["primaria", "secondaria"].includes(school)}
+        {#if ["primaria"].includes(school)}
             <li>
                 <a href={email("covidpiccinini@icannacelli.edu.it")}>Piccinini (Latini Maria Teresa)</a>
             </li>

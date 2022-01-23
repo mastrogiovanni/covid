@@ -9,14 +9,21 @@
         DOPO_T5,
         FIGLIO_POSITIVO,
         FIGLIO_POSITIVO_INFANZIA,
-        FIGLIO_POSITIVO_SECONDARIA,
+        FIGLIO_POSITIVO_SECONDARIA_DUE,
+        FIGLIO_POSITIVO_SECONDARIA_TRE,
+        FIGLIO_POSITIVO_SECONDARIA_UNO,
         POSSO_RIENTRARE,
+        QUANDO_APPLICHI_QUARANTENA_AUTOSORVEGLIANZA,
         QUANDO_APPLICHI_QUARANTENA_INFANZIA,
         QUANDO_APPLICHI_QUARANTENA_SORVEGLIANZA,
         REFERENTE_MANDA_QUARANTENA,
         REFERENTE_MANDA_T0_T5,
+        REFERENTE_SECONDARIA_ALUNNO_DUE,
+        REFERENTE_SECONDARIA_ALUNNO_TRE,
+        REFERENTE_SECONDARIA_ALUNNO_UNO,
         SECONDO_POSITIVO,
         SERVE_PRESCRIZIONE,
+        SIGNIFICATO_AUTOSORVEGLIANZA,
         SIGNIFICATO_QUARANTENA,
         SORVEGLIANZA_TESTING,
         T0_TIPO,
@@ -83,30 +90,89 @@
         </AccordionItem>
     {/if}
 
-    <!--
-    {#if questions.includes(FIGLIO_POSITIVO_SECONDARIA)}
+    {#if questions.includes(FIGLIO_POSITIVO_SECONDARIA_UNO)}
         <AccordionItem>
             <h4 class="m-0" slot="header">
-                Mio figlio è positivo, che devo fare?
+                1 alunno della classe è positivo, che devo fare?
             </h4>
             <ul>
                 <li>
-                    Comunicare subito la positività al referente Covid e in
-                    copia alla segreteria tramite email:
-                    <AddressList {school} subject="Comunicazione Positività" />
+                    Attendere che la scuola comunichi il caso di positività alla
+                    classe
                 </li>
                 <li>
-                    Comunicare al medico/pediatra la positività per attivare la
-                    Quarantena del bambino.
+                    Attendere che il/la rappresentante dia comunicazione di come
+                    procedere
                 </li>
                 <li>
-                    Un test antigenico positivo non necessita di conferma con
-                    tampone molecolare
+                    La comunicazione della scuola viene inviata all'account
+                    dell'alunno.
                 </li>
+                {#if rappresentante}
+                    <li>
+                        Tranquillizzare i genitori, la procedura è presa in
+                        carico dalla scuola
+                    </li>
+                {/if}
             </ul>
         </AccordionItem>
     {/if}
-    -->
+
+    {#if questions.includes(FIGLIO_POSITIVO_SECONDARIA_DUE)}
+        <AccordionItem>
+            <h4 class="m-0" slot="header">
+                2 alunni della classe sono positivi, che devo fare?
+            </h4>
+            <ul>
+                <li>
+                    Attendere che la scuola comunichi il caso di positività alla
+                    classe
+                </li>
+                <li>
+                    Attendere che il/la rappresentante dia comunicazione di come
+                    procedere
+                </li>
+                <li>
+                    La comunicazione della scuola viene inviata all'account
+                    dell'alunno.
+                </li>
+                {#if rappresentante}
+                    <li>
+                        Tranquillizzare i genitori, la procedura è presa in
+                        carico dalla scuola
+                    </li>
+                {/if}
+            </ul>
+        </AccordionItem>
+    {/if}
+
+    {#if questions.includes(FIGLIO_POSITIVO_SECONDARIA_TRE)}
+        <AccordionItem>
+            <h4 class="m-0" slot="header">
+                3 alunni della classe sono positivi, che devo fare?
+            </h4>
+            <ul>
+                <li>
+                    Attendere che la scuola comunichi il caso di positività alla
+                    classe
+                </li>
+                <li>
+                    Attendere che il/la rappresentante dia comunicazione di come
+                    procedere
+                </li>
+                <li>
+                    La comunicazione della scuola viene inviata all'account
+                    dell'alunno.
+                </li>
+                {#if rappresentante}
+                    <li>
+                        Tranquillizzare i genitori, la procedura è presa in
+                        carico dalla scuola
+                    </li>
+                {/if}
+            </ul>
+        </AccordionItem>
+    {/if}
 
     {#if questions.includes(ALUNNO_POSITIVO)}
         <AccordionItem>
@@ -237,6 +303,63 @@
         </AccordionItem>
     {/if}
 
+    {#if questions.includes(REFERENTE_SECONDARIA_ALUNNO_UNO)}
+        <AccordionItem>
+            <h4 class="m-0" slot="header">
+                La referente Covid ha mandato una email alla classe dicendo che
+                in presenza di 1 alunno positivo, la classe è in
+                Auto-sorveglianza. Cosa fare?
+            </h4>
+            <ul>
+                <li>Il caso positivo viene posto in isolamento</li>
+                <li>Gli alunni eseguono l'Auto-sorveglianza</li>
+            </ul>
+        </AccordionItem>
+    {/if}
+
+    {#if questions.includes(REFERENTE_SECONDARIA_ALUNNO_DUE)}
+        <AccordionItem>
+            <h4 class="m-0" slot="header">
+                La referente Covid ha mandato una email alla classe dicendo che
+                in presenza di 2 alunni positivi, per la classe vige
+                Auto-sorveglianza oppure Quarentena. Cosa fare?
+            </h4>
+            <ul>
+                <li>I casi positivi vengono isolati</li>
+                <li>
+                    Quarentena di 10 gg per alunni che non abbiano concluso il
+                    ciclo vaccinale primario o che lo abbiano concluso da più di
+                    120 gg e ai quali non è stata somministrata dose di richiamo
+                </li>
+                <li>
+                    Frequentazione in presenza con Auto-sorveglianza per tutti
+                    gli altri casi.
+                </li>
+                <li>
+                    I requisiti per frequentare in Auto-sorveglianza devono
+                    essere dimostrati dall'alunno interessato e la scuola è
+                    abilitata a prendere visione dello stato vaccinale degli
+                    alunni
+                </li>
+            </ul>
+        </AccordionItem>
+    {/if}
+
+    {#if questions.includes(REFERENTE_SECONDARIA_ALUNNO_TRE)}
+        <AccordionItem>
+            <h4 class="m-0" slot="header">
+                La referente Covid ha mandato una email alla classe dicendo che
+                in presenza di 3 alunni positivi, per la classe viene disposta
+                la Quarantena. Cosa fare?
+            </h4>
+            <ul>
+                <li>I casi positivi vengono isolati</li>
+                <li>L'attività didattica è sospesa per 10 giorni</li>
+                <li>Si attiva la DAD per la classe</li>
+            </ul>
+        </AccordionItem>
+    {/if}
+
     {#if questions.includes(TAMPONE_RIENTRO_QUARANTENA)}
         <AccordionItem>
             <h4 class="m-0" slot="header">
@@ -309,8 +432,8 @@
                 <li>
                     Il rappresentante comunica la negatività dell'intero gruppo
                     o parziale (indicando i nomi mancanti), o eventuale secondo
-                    positivo, alla referente Covid e in copia alla segreteria e
-                    sul gruppo Whatsapp delle maestre
+                    positivo, alla refereInnte Covid e in copia alla segreteria
+                    e sul gruppo Whatsapp delle maestre
                 </li>
                 <li>
                     Il gruppo classe rientra in contemporanea, solo con tutti i
@@ -393,7 +516,7 @@
     {#if questions.includes(QUANDO_APPLICHI_QUARANTENA_SORVEGLIANZA)}
         <AccordionItem>
             <h4 class="m-0" slot="header">
-                Quando si applica la Quarantena, la Sorveglianza con testing e
+                Quando si applicano la Quarantena, la Sorveglianza con testing e
                 l'Auto-sorveglianza?
             </h4>
             Si applicano solo se il caso positivo Covid 19 ha frequentato la scuola:
@@ -406,6 +529,19 @@
                     nei 2 giorni precedenti l'esecuzione del tampone positivo
                     per il soggetto positivo asintomatico
                 </li>
+            </ul>
+        </AccordionItem>
+    {/if}
+
+    {#if questions.includes(QUANDO_APPLICHI_QUARANTENA_AUTOSORVEGLIANZA)}
+        <AccordionItem>
+            <h4 class="m-0" slot="header">
+                Quando si applicano Quarantena e Auto-sorveglianza?
+            </h4>
+            Si applicano solo se il caso positivo Covid 19 ha frequentato la scuola:
+            <ul>
+                <li>nei 2 giorni precedenti l’insorgenza dei sintomi per il soggetto positivo sintomatico</li>
+                <li>nei 2 giorni precedenti l’esecuzione del tampone positivo per il soggetto positivo asintomatico</li>
             </ul>
         </AccordionItem>
     {/if}
@@ -437,6 +573,29 @@
             effettuare 5 giorni dopo il test T0. Evitare assembramenti, attività
             sportive in gruppo, partecipazione a feste, ecc. Chi non procede con
             i test T0 e T5 deve fare la quarantena e informare il Referente scolastico
+        </AccordionItem>
+    {/if}
+
+    {#if questions.includes(SIGNIFICATO_AUTOSORVEGLIANZA)}
+        <AccordionItem>
+            <h4 class="m-0" slot="header">Cosa significa Auto-sorveglianza?</h4>
+            <ul>
+                <li>monitoraggio della temperatura 2 volte al giorno</li>
+                <li>indossare mascherina FFP2</li>
+                <li>
+                    si può frequentare scuola ma è opportuno limitare le altri
+                    attività sociali
+                </li>
+                <li>
+                    si raccomanda di consumare i pasti a scuola mantenendo una
+                    distanza interpersonale di almeno 2 metri
+                </li>
+                <li>
+                    in caso di comparsa di sintomi effettuare tampone rapido o
+                    molecolare. Se i sintomi persistono ripetere il tampone
+                    rapido o molecolare dopo 5 giorni
+                </li>
+            </ul>
         </AccordionItem>
     {/if}
 
