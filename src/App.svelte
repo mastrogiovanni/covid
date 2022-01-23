@@ -19,6 +19,8 @@
 		ALUNNO_POSITIVO_INFANZIA,
 		FIGLIO_POSITIVO_INFANZIA,
 TAMPONE_RIENTRO_QUARANTENA,
+FIGLIO_POSITIVO_SECONDARIA,
+QUANDO_APPLICHI_QUARANTENA_INFANZIA,
 	} from "./constant";
 	import Questions from "./Questions.svelte";
 	import {
@@ -74,9 +76,15 @@ TAMPONE_RIENTRO_QUARANTENA,
 		POSSO_RIENTRARE,
 		USCITA_QUARANTENA,
 		BIMBO_48_ORE,
-		SORVEGLIANZA_TESTING,
+		QUANDO_APPLICHI_QUARANTENA_INFANZIA,
 		SIGNIFICATO_QUARANTENA,
 	];
+
+	const secondaria = [
+		FIGLIO_POSITIVO,
+		ALUNNO_POSITIVO
+
+	]
 
 	let school = "primaria";
 
@@ -95,7 +103,7 @@ TAMPONE_RIENTRO_QUARANTENA,
 		*/
 		if ((new URLSearchParams(window.location.search)).get("preview")) {
 			preview = true;
-			// school = "primaria"
+			school = "secondaria"
 		}
 	})
 
@@ -105,7 +113,7 @@ TAMPONE_RIENTRO_QUARANTENA,
 		} else if (school === "primaria") {
 			questions = primaria;
 		} else if (school === "secondaria") {
-			questions = [];
+			questions = secondaria;
 		}
 	}
 
@@ -195,14 +203,15 @@ TAMPONE_RIENTRO_QUARANTENA,
 		</Alert>
 	</div>
 
-	<!--
+	{#if preview}
 	<div class="col" on:click={() => {choose('secondaria')}}>
 		<Alert color="{school === 'secondaria' ? 'primary' : 'secondary' }" style="padding: 4px; text-align: center;">
 			<h6>Secondaria</h6>
 			<small>{#if school !== 'secondaria'}seleziona{:else}-{/if}</small>
 		</Alert>
 	</div>
-	-->
+	{/if}
+
 </div>
 
 <!--

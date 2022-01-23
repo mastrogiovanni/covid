@@ -11,6 +11,7 @@
         FIGLIO_POSITIVO_INFANZIA,
         FIGLIO_POSITIVO_SECONDARIA,
         POSSO_RIENTRARE,
+        QUANDO_APPLICHI_QUARANTENA_INFANZIA,
         QUANDO_APPLICHI_QUARANTENA_SORVEGLIANZA,
         REFERENTE_MANDA_QUARANTENA,
         REFERENTE_MANDA_T0_T5,
@@ -82,6 +83,7 @@
         </AccordionItem>
     {/if}
 
+    <!--
     {#if questions.includes(FIGLIO_POSITIVO_SECONDARIA)}
         <AccordionItem>
             <h4 class="m-0" slot="header">
@@ -104,6 +106,7 @@
             </ul>
         </AccordionItem>
     {/if}
+    -->
 
     {#if questions.includes(ALUNNO_POSITIVO)}
         <AccordionItem>
@@ -241,9 +244,8 @@
             </h4>
             <ul>
                 <li>
-                    Si prenota, entro 24h dalla ricezione della mail, un tampone
-                    tramite sito della Regione Lazio oppure nei centri e
-                    farmacie autorizzate.
+                    Si prenota un tampone tramite sito della Regione Lazio
+                    oppure nei centri e farmacie autorizzate.
                 </li>
                 <li>
                     Tramite auto-prenotazione sul <a
@@ -279,7 +281,7 @@
     {#if questions.includes(SERVE_PRESCRIZIONE)}
         <AccordionItem>
             <h4 class="m-0" slot="header">
-                Serve la prescrizione medica/pediatra?
+                Serve la prescrizione del medico/pediatra?
             </h4>
             Con o senza prescrizione medica
         </AccordionItem>
@@ -314,6 +316,10 @@
                     Il gruppo classe rientra in contemporanea, solo con tutti i
                     referti negativi inviati e con copia sul cellulare o
                     cartacea da far visionare all'ingresso
+                </li>
+                <li>
+                    Si raccomanda di consumare i pasti a scuola mantenendo una
+                    distanza interpersonale di almeno 2 metri
                 </li>
             </ul>
         </AccordionItem>
@@ -391,6 +397,23 @@
                 l'Auto-sorveglianza?
             </h4>
             Si applicano solo se il caso positivo Covid 19 ha frequentato la scuola:
+            <ul>
+                <li>
+                    nei 2 giorni precedenti l'insorgenza dei sintomi per il
+                    soggetto positivo sintomatico
+                </li>
+                <li>
+                    nei 2 giorni precedenti l'esecuzione del tampone positivo
+                    per il soggetto positivo asintomatico
+                </li>
+            </ul>
+        </AccordionItem>
+    {/if}
+
+    {#if questions.includes(QUANDO_APPLICHI_QUARANTENA_INFANZIA)}
+        <AccordionItem>
+            <h4 class="m-0" slot="header">Quando si applica la Quarantena?</h4>
+            Si applica solo se il caso positivo Covid 19 ha frequentato la scuola:
             <ul>
                 <li>
                     nei 2 giorni precedenti l'insorgenza dei sintomi per il

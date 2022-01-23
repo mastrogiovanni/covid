@@ -20,6 +20,8 @@ export const SECONDO_POSITIVO = "secondo.positivo"
 export const USCITA_QUARANTENA = "uscita.quarantena"
 export const BIMBO_48_ORE = "bimbo.48.ore"
 export const QUANDO_APPLICHI_QUARANTENA_SORVEGLIANZA = "quando.applichi.quarantena.sorveglianza"
+export const QUANDO_APPLICHI_QUARANTENA_INFANZIA = "quando.applichi.quarantena"
+
 export const SORVEGLIANZA_TESTING = "sorveglianza.testing"
 export const SIGNIFICATO_QUARANTENA = "significato.quarantena"
 
