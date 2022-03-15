@@ -1,50 +1,18 @@
 <script lang="ts">
-	import {
-		SIGNIFICATO_QUARANTENA,
-		ALUNNO_POSITIVO,
-		BIMBO_48_ORE,
-		DOPO_T0,
-		DOPO_T5,
-		FIGLIO_POSITIVO,
-		POSSO_RIENTRARE,
-		QUANDO_APPLICHI_QUARANTENA_SORVEGLIANZA,
-		REFERENTE_MANDA_T0_T5,
-		SECONDO_POSITIVO,
-		SERVE_PRESCRIZIONE,
-		SORVEGLIANZA_TESTING,
-		T0_TIPO,
-		T5_TIPO,
-		USCITA_QUARANTENA,
-		REFERENTE_MANDA_QUARANTENA,
-		ALUNNO_POSITIVO_INFANZIA,
-		FIGLIO_POSITIVO_INFANZIA,
-		TAMPONE_RIENTRO_QUARANTENA,
-		FIGLIO_POSITIVO_SECONDARIA,
-		QUANDO_APPLICHI_QUARANTENA_INFANZIA,
-		REFERENTE_SECONDARIA_ALUNNO_DUE,
-		REFERENTE_SECONDARIA_ALUNNO_TRE,
-		FIGLIO_POSITIVO_SECONDARIA_UNO,
-		FIGLIO_POSITIVO_SECONDARIA_DUE,
-		FIGLIO_POSITIVO_SECONDARIA_TRE,
-		REFERENTE_SECONDARIA_ALUNNO_UNO,
-		QUANDO_APPLICHI_QUARANTENA_AUTOSORVEGLIANZA,
-		SIGNIFICATO_AUTOSORVEGLIANZA,
-	} from "./constant";
-	import Questions from "./Questions.svelte";
+	
 	import Primaria from "./Primaria.svelte";
 	import Infanzia from "./Infanzia.svelte";
+	import Secondaria from "./Secondaria.svelte";
+	
 	import {
 		Button,
 		FormGroup,
 		Input,
-		Modal,
-		ModalBody,
-		ModalFooter,
-		ModalHeader,
 	} from "sveltestrap";
+
 	import SvelteSeo from "svelte-seo";
+	
 	import { Alert } from "sveltestrap";
-	import { onMount } from "svelte";
 
 	let rappresentante = false;
 
@@ -159,10 +127,7 @@
 {#if school === 'primaria'}
 	<Primaria {school} {rappresentante}></Primaria>
 {:else if school === "secondaria"}
-	<Alert color="danger">
-		<h1>Guida rapida per la gestione Covid a scuola</h1>
-		<small>Siamo lavorando per aggiornare il sito in base alle nuove regole ministeriali</small>
-	</Alert>
+	<Secondaria {school} {rappresentante}></Secondaria>
 {:else if school === "infanzia"}
 	<Infanzia {school} {rappresentante}></Infanzia>
 {/if}
