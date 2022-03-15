@@ -29,9 +29,8 @@
 		REFERENTE_SECONDARIA_ALUNNO_UNO,
 		QUANDO_APPLICHI_QUARANTENA_AUTOSORVEGLIANZA,
 		SIGNIFICATO_AUTOSORVEGLIANZA,
-	} from "./constant";
+	} from "./constant-old";
 	import Questions from "./Questions.svelte";
-	import Primaria from "./Primaria.svelte";
 	import {
 		Button,
 		FormGroup,
@@ -110,6 +109,22 @@
 	let questions = [];
 	let preview = false;
 
+	onMount(() => {
+		/*
+		let s = localStorage?.getItem("school");
+		if (['infanzia', 'primaria', 'secondaria'].includes(s)) {
+			school = s;
+		}
+		else {
+			school = "primaria"
+		}
+		*/
+		if (new URLSearchParams(window.location.search).get("preview")) {
+			preview = true;
+			school = "secondaria";
+		}
+	});
+
 	$: {
 		if (school === "infanzia") {
 			questions = infanzia;
@@ -127,6 +142,12 @@
 		}
 	}
 </script>
+
+<!--
+<svelte:head>
+	<script src='/index.js'></script>
+</svelte:head>
+-->
 
 <SvelteSeo
 	twitter={{
@@ -146,6 +167,12 @@
 			modifiedTime: "2022-01-18T19:00:00Z",
 			expirationTime: "2025-01-18T19:00:00Z",
 			section: "FAQ",
+			/*
+      authors: [
+        "https://www.example.com/authors/@firstnameA-lastnameA",
+        "https://www.example.com/authors/@firstnameB-lastnameB",
+      ],
+	  */
 			tags: ["covid", "scuola"],
 		},
 		images: [
@@ -159,28 +186,43 @@
 	}}
 />
 
+<Modal class="modal-install" isOpen={open} {toggle}>
+	<ModalHeader {toggle}>Istalla</ModalHeader>
+	<ModalBody>
+		Questa pagina può essere istallata come applicazione. Vuoi procedere?
+	</ModalBody>
+	<ModalFooter>
+		<Button color="primary" class="install-btn" on:click={toggle}
+			>Do Something</Button
+		>
+		<Button color="secondary" on:click={toggle}>Cancel</Button>
+	</ModalFooter>
+</Modal>
+
 <Alert color="primary">
 	<h1>Guida rapida per la gestione Covid a scuola</h1>
 	<small>Scegli la scuola di appartenenza</small>
 </Alert>
 
 <div class="row">
-	<div
-		class="col"
-		on:click={() => {
-			choose("infanzia");
-		}}
-	>
-		<Alert
-			color={school === "infanzia" ? "primary" : "secondary"}
-			style="padding: 4px; text-align: center;"
+	{#if preview}
+		<div
+			class="col"
+			on:click={() => {
+				choose("infanzia");
+			}}
 		>
-			<h6>Infanzia</h6>
-			<small
-				>{#if school !== "infanzia"}seleziona{:else}-{/if}</small
+			<Alert
+				color={school === "infanzia" ? "primary" : "secondary"}
+				style="padding: 4px; text-align: center;"
 			>
-		</Alert>
-	</div>
+				<h6>Infanzia</h6>
+				<small
+					>{#if school !== "infanzia"}seleziona{:else}-{/if}</small
+				>
+			</Alert>
+		</div>
+	{/if}
 
 	<div
 		class="col"
@@ -199,23 +241,48 @@
 		</Alert>
 	</div>
 
-	<div
-		class="col"
-		on:click={() => {
-			choose("secondaria");
-		}}
-	>
-		<Alert
-			color={school === "secondaria" ? "primary" : "secondary"}
-			style="padding: 4px; text-align: center;"
+	{#if preview}
+		<div
+			class="col"
+			on:click={() => {
+				choose("secondaria");
+			}}
 		>
-			<h6>Secondaria</h6>
-			<small
-				>{#if school !== "secondaria"}seleziona{:else}-{/if}</small
+			<Alert
+				color={school === "secondaria" ? "primary" : "secondary"}
+				style="padding: 4px; text-align: center;"
 			>
+				<h6>Secondaria</h6>
+				<small
+					>{#if school !== "secondaria"}seleziona{:else}-{/if}</small
+				>
+			</Alert>
+		</div>
+	{/if}
+</div>
+
+<!--
+<div class="row">
+	<div class="col" style="{school === 'infanzia' ? 'background-color: green' : '' }; text-align:center; border-radius: 15px; margin: 10px; padding-top: 10px;" on:click={() => {school = 'infanzia'}}>
+		<Alert color="primary" >
+			<h3>Infanzia</h3>
+			<small>{#if school !== 'infanzia'}clicca qui per selezionare{:else}-{/if}</small>
+		</Alert>
+	</div>
+	<div class="col" style="{school === 'primaria' ? 'background-color: green' : '' }; text-align:center; border-radius: 15px; margin: 10px; padding-top: 10px;" on:click={() => {school = 'primaria'}}>
+		<Alert color="secondary">
+			<h3>Primaria</h3>
+			<small>{#if school !== 'primaria'}clicca qui per selezionare{:else}-{/if}</small>
+		</Alert>
+	</div>
+	<div class="col" style="{school === 'secondaria' ? 'background-color: green' : '' }; text-align:center; border-radius: 15px; margin: 10px; padding-top: 10px;" on:click={() => {school = 'secondaria'}}>
+		<Alert color="success">
+			<h3>Secondaria</h3>
+			<small>{#if school !== 'secondaria'}clicca qui per selezionare{:else}-{/if}</small>
 		</Alert>
 	</div>
 </div>
+-->
 
 <FormGroup>
 	<Input
@@ -226,17 +293,4 @@
 	/>
 </FormGroup>
 
-{#if school === 'primaria'}
-	<Primaria {school} {rappresentante}></Primaria>
-{:else if school === "secondaria"}
-	<Alert color="danger">
-		<h1>Guida rapida per la gestione Covid a scuola</h1>
-		<small>Siamo lavorando per aggiornare il sito in base alle nuove regole ministeriali</small>
-	</Alert>
-{:else if school === "infanzia"}
-	<Alert color="danger">
-		<h1>Guida rapida per la gestione Covid a scuola</h1>
-		<small>Siamo lavorando per aggiornare il sito in base alle nuove regole ministeriali</small>
-	</Alert>
-{/if}
-
+<Questions {rappresentante} {questions} {school} />
