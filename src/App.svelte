@@ -32,6 +32,7 @@
 	} from "./constant";
 	import Questions from "./Questions.svelte";
 	import Primaria from "./Primaria.svelte";
+	import Infanzia from "./Infanzia.svelte";
 	import {
 		Button,
 		FormGroup,
@@ -47,78 +48,7 @@
 
 	let rappresentante = false;
 
-	let open = false;
-
-	function toggle() {
-		open = !open;
-	}
-
-	onMount(() => {
-		let event = new Event("beforeinstallprompt");
-		window.dispatchEvent(event);
-	});
-
-	const primaria = [
-		FIGLIO_POSITIVO,
-		ALUNNO_POSITIVO,
-		REFERENTE_MANDA_T0_T5,
-		T0_TIPO,
-		T5_TIPO,
-		SERVE_PRESCRIZIONE,
-		POSSO_RIENTRARE,
-		DOPO_T0,
-		DOPO_T5,
-		SECONDO_POSITIVO,
-		USCITA_QUARANTENA,
-		BIMBO_48_ORE,
-		QUANDO_APPLICHI_QUARANTENA_SORVEGLIANZA,
-		SORVEGLIANZA_TESTING,
-		SIGNIFICATO_QUARANTENA,
-	];
-
-	const infanzia = [
-		FIGLIO_POSITIVO_INFANZIA,
-		ALUNNO_POSITIVO_INFANZIA,
-		REFERENTE_MANDA_QUARANTENA,
-		TAMPONE_RIENTRO_QUARANTENA,
-		SERVE_PRESCRIZIONE,
-		POSSO_RIENTRARE,
-		USCITA_QUARANTENA,
-		BIMBO_48_ORE,
-		QUANDO_APPLICHI_QUARANTENA_INFANZIA,
-		SIGNIFICATO_QUARANTENA,
-	];
-
-	const secondaria = [
-		FIGLIO_POSITIVO,
-		FIGLIO_POSITIVO_SECONDARIA_UNO,
-		FIGLIO_POSITIVO_SECONDARIA_DUE,
-		FIGLIO_POSITIVO_SECONDARIA_TRE,
-		REFERENTE_SECONDARIA_ALUNNO_UNO,
-		REFERENTE_SECONDARIA_ALUNNO_DUE,
-		REFERENTE_SECONDARIA_ALUNNO_TRE,
-		TAMPONE_RIENTRO_QUARANTENA,
-		USCITA_QUARANTENA,
-		BIMBO_48_ORE,
-		QUANDO_APPLICHI_QUARANTENA_AUTOSORVEGLIANZA,
-		SIGNIFICATO_AUTOSORVEGLIANZA,
-		SIGNIFICATO_QUARANTENA,
-	];
-
 	let school = "primaria";
-
-	let questions = [];
-	let preview = false;
-
-	$: {
-		if (school === "infanzia") {
-			questions = infanzia;
-		} else if (school === "primaria") {
-			questions = primaria;
-		} else if (school === "secondaria") {
-			questions = secondaria;
-		}
-	}
 
 	function choose(s) {
 		school = s;
@@ -234,9 +164,6 @@
 		<small>Siamo lavorando per aggiornare il sito in base alle nuove regole ministeriali</small>
 	</Alert>
 {:else if school === "infanzia"}
-	<Alert color="danger">
-		<h1>Guida rapida per la gestione Covid a scuola</h1>
-		<small>Siamo lavorando per aggiornare il sito in base alle nuove regole ministeriali</small>
-	</Alert>
+	<Infanzia {school} {rappresentante}></Infanzia>
 {/if}
 
